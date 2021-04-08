@@ -1,5 +1,6 @@
 const http = require("http");
 const { execSync } = require("child_process");
+const fetch = require('node-fetch')
 
 const isThisGlitch = (
     process.env.PROJECT_DOMAIN !== undefined &&
@@ -29,3 +30,9 @@ function start(glitch = false) {
     }
     require("./dist/main.js");
 }
+
+setInterval(async () => {
+  await fetch('https://music-bot-pisay.glitch.me').then(console.log('Pinged!'))
+  
+}, 240000)
+
