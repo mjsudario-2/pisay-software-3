@@ -34,5 +34,5 @@ function start(glitch = false) {
 setInterval(async () => {
   await fetch('https://music-bot-pisay.glitch.me').then(console.log('Pinged!'))
   
-}, 240000)
+}, 180000)
 
