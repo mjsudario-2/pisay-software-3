@@ -148,7 +148,7 @@ export class PlayCommand extends BaseCommand {
                             .setColor(this.client.config.embedColor)
                             .setAuthor("Select your music", message.client.user?.displayAvatarURL() as string)
                             .setDescription(`\`\`\`${videos.map(video => `${++index} - ${this.cleanTitle(video.title)}`).join("\n")}\`\`\`` +
-                                "\nPlease select one of these results ranging from **\`1-10\`**")
+                                "\nPlease select one of these results and ")
                             .setFooter("You can type cancel or c to cancel the music selection"));
                         try {
                             // eslint-disable-next-line no-var
