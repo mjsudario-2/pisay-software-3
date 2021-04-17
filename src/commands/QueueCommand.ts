@@ -7,8 +7,8 @@ import { createEmbed } from "../utils/createEmbed";
 @DefineCommand({
     aliases: ["q"],
     name: "queue",
-    description: "Show the current queue",
-    usage: "{prefix}queue"
+    description: "Shows the current queue",
+    usage: "%queue"
 })
 export class QueueCommand extends BaseCommand {
     @isMusicPlaying()

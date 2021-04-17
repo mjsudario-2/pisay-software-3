@@ -26,7 +26,7 @@ export class PlayCommand extends BaseCommand {
         const voiceChannel = message.member!.voice.channel!;
         if (!args[0]) {
             return message.channel.send(
-                createEmbed("error", `Invalid usage, see **\`${this.client.config.prefix}help play\`** for more information`)
+                createEmbed("error", `Invalid usage, type **\`${this.client.config.prefix}help play\`** for more information`)
             );
         }
         const searchString = args.join(" ");
@@ -102,7 +102,7 @@ export class PlayCommand extends BaseCommand {
                     }
                     message.channel.messages.fetch(addingPlaylistVideoMessage.id, false).then(m => m.delete()).catch(e => this.client.logger.error("SP_PLAYLIST_ERR:", e));
                     return message.channel.send(
-                        createEmbed("info", `✅ **|** All music in **[${playlistData.name}](${playlistData.external_urls.spotify})** playlist has been added to the queue`)
+                        createEmbed("info", `🎵 **|** All music in **[${playlistData.name}](${playlistData.external_urls.spotify})** playlist has been added to the queue`)
                             .setThumbnail(playlistData.images[0].url)
                     );
                 } catch (e) {
@@ -146,7 +146,7 @@ export class PlayCommand extends BaseCommand {
                         let index = 0;
                         const msg = await message.channel.send(new MessageEmbed()
                             .setColor(this.client.config.embedColor)
-                            .setAuthor("Music Selection", message.client.user?.displayAvatarURL() as string)
+                            .setAuthor("Select your music", message.client.user?.displayAvatarURL() as string)
                             .setDescription(`\`\`\`${videos.map(video => `${++index} - ${this.cleanTitle(video.title)}`).join("\n")}\`\`\`` +
                                 "\nPlease select one of these results ranging from **\`1-10\`**")
                             .setFooter("You can type cancel or c to cancel the music selection"));
@@ -200,14 +200,14 @@ export class PlayCommand extends BaseCommand {
             }
             message.guild.queue.songs.addSong(song);
             if (!playlist) {
-                message.channel.send(createEmbed("info", `✅ **|** **[${song.title}](${song.url})** has been added to the queue`).setThumbnail(song.thumbnail))
+                message.channel.send(createEmbed("info", `🎵 **|** **[${song.title}](${song.url})** has been added to the queue`).setThumbnail(song.thumbnail))
                     .catch(e => this.client.logger.error("PLAY_CMD_ERR:", e));
             }
         } else {
             message.guild!.queue = new ServerQueue(message.channel as ITextChannel, voiceChannel);
             message.guild?.queue.songs.addSong(song);
             if (!playlist) {
-                message.channel.send(createEmbed("info", `✅ **|** **[${song.title}](${song.url})** has been added to the queue`).setThumbnail(song.thumbnail))
+                message.channel.send(createEmbed("info", `🎵 **|** **[${song.title}](${song.url})** has been added to the queue`).setThumbnail(song.thumbnail))
                     .catch(e => this.client.logger.error("PLAY_CMD_ERR:", e));
             }
             try {
@@ -237,7 +237,7 @@ export class PlayCommand extends BaseCommand {
             if (serverQueue.lastMusicMessageID !== null) serverQueue.textChannel?.messages.fetch(serverQueue.lastMusicMessageID, false).then(m => m.delete()).catch(e => this.client.logger.error("PLAY_ERR:", e));
             if (serverQueue.lastVoiceStateUpdateMessageID !== null) serverQueue.textChannel?.messages.fetch(serverQueue.lastVoiceStateUpdateMessageID, false).then(m => m.delete()).catch(e => this.client.logger.error("PLAY_ERR:", e));
             serverQueue.textChannel?.send(
-                createEmbed("info", `⏹ **|** The music has ended, use **\`${guild.client.config.prefix}play\`** to play a music again`)
+                createEmbed("info", `🔻 **|** The music has ended, use **\`${guild.client.config.prefix}play\`** to play a music again`)
             ).catch(e => this.client.logger.error("PLAY_ERR:", e));
             serverQueue.connection?.disconnect();
             return guild.queue = null;

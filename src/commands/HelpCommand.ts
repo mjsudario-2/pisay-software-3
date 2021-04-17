@@ -7,7 +7,7 @@ import { createEmbed } from "../utils/createEmbed";
 @DefineCommand({
     aliases: ["h", "command", "commands", "cmd", "cmds"],
     name: "help",
-    description: "Shows the list of commands available",
+    description: "Shows information about a command",
     usage: "%help [command]"
 })
 export class HelpCommand extends BaseCommand {
