@@ -15,8 +15,8 @@ import { Video } from "../utils/YouTube/structures/Video";
 @DefineCommand({
     aliases: ["p", "add", "play-music"],
     name: "play",
-    description: "Play some music",
-    usage: "{prefix}play <youtube video or playlist link | youtube video name>"
+    description: "Plays some music for you",
+    usage: "%play <Youtube Video URL or Song Name>"
 })
 export class PlayCommand extends BaseCommand {
     @isUserInTheVoiceChannel()

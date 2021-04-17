@@ -7,8 +7,8 @@ import { createEmbed } from "../utils/createEmbed";
 @DefineCommand({
     aliases: ["h", "command", "commands", "cmd", "cmds"],
     name: "help",
-    description: "Show the command list",
-    usage: "{prefix}help [command]"
+    description: "Shows the list of commands available",
+    usage: "%help [command]"
 })
 export class HelpCommand extends BaseCommand {
     public execute(message: IMessage, args: string[]): void {
@@ -29,7 +29,7 @@ export class HelpCommand extends BaseCommand {
                 createEmbed("info", message.client.commands.filter(cmd => !cmd.meta.disable && cmd.meta.name !== "eval").map(c => `\`${c.meta.name}\``).join(" "))
                     .setAuthor("Command List")
                     .setThumbnail(message.client.user?.displayAvatarURL() as string)
-                    .setFooter(`Use ${message.client.config.prefix}help <command> to get more information on a specific command!`, "https://raw.githubusercontent.com/zhycorp/disc-11/main/.github/images/info.png")
+                    .setFooter(`Use ${message.client.config.prefix}help [command] to get more information on a specific command!`, "https://raw.githubusercontent.com/zhycorp/disc-11/main/.github/images/info.png")
             ).catch(e => this.client.logger.error("HELP_CMD_ERR:", e));
         }
     }

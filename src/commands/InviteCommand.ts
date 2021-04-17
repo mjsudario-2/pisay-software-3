@@ -6,8 +6,8 @@ import { disableInviteCmd } from "../config";
 
 @DefineCommand({
     name: "invite",
-    description: "Send the bot's invite link",
-    usage: "{prefix}invite",
+    description: "Sends you my invite link",
+    usage: "%invite",
     disable: disableInviteCmd
 })
 export class InviteCommand extends BaseCommand {
