@@ -7,7 +7,7 @@ import { createEmbed } from "../utils/createEmbed";
 @DefineCommand({
     aliases: ["np", "now-playing"],
     name: "nowplaying",
-    description: "Sends information about the song being played",
+    description: "Lets the user know what song is being played",
     usage: "%nowplaying"
 })
 export class NowPlayingCommand extends BaseCommand {

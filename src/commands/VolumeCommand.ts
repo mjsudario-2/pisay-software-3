@@ -7,7 +7,7 @@ import { createEmbed } from "../utils/createEmbed";
 @DefineCommand({
     aliases: ["vol"],
     name: "volume",
-    description: "Show or change the volume of the music",
+    description: "Shows or changes the volume of the music",
     usage: "%volume [new volume]"
 })
 export class VolumeCommand extends BaseCommand {
