@@ -146,7 +146,7 @@ export class PlayCommand extends BaseCommand {
                         let index = 0;
                         const msg = await message.channel.send(new MessageEmbed()
                             .setColor(this.client.config.embedColor)
-                            .setAuthor("🎶 **|** Select your music", message.client.user?.displayAvatarURL() as string)
+                            .setAuthor("🎶 Select your music", message.client.user?.displayAvatarURL() as string)
                             .setDescription(`\`\`\`${videos.map(video => `${++index} - ${this.cleanTitle(video.title)}`).join("\n")}\`\`\`` +
                                 "\nPlease select one of these results and type the number of the song you want to play")
                             .setFooter("You can type cancel or c to cancel the music selection"));
